@@ -19,21 +19,38 @@
 
     <div class="btn-container">
 
-        <div class="game-btn">
+        <div class="game-btn" id="tic-tac-toe-btn">
             <img src="images/tic-tac-toe-svgrepo-com.svg" alt="">
         </div>
-        <div class="game-btn">
+        <div class="game-btn" id="rock-paper-scissors-btn">
             <img src="images/hand-svgrepo-com.svg" alt="" style="transform:rotate(90deg)">
         </div>
-        <div class="game-btn"></div>
+        <div class="game-btn" id="snakes-ladders-btn"></div>
         <div class="game-btn"></div>
         <div class="game-btn"></div>
 
     </div>
 
-    <div class="gameboard"></div>
+    <div class="gameboard">
+
+        <div class="tic-tac-container">
+            <div class="tic-tac-box"></div>
+            <div class="tic-tac-box border-left-right"></div>
+            <div class="tic-tac-box"></div>
+            <div class="tic-tac-box border-top-bottom"></div>
+            <div class="tic-tac-box border-left-right border-top-bottom"></div>
+            <div class="tic-tac-box border-top-bottom"></div>
+            <div class="tic-tac-box"></div>
+            <div class="tic-tac-box border-left-right"></div>
+            <div class="tic-tac-box"></div>
+        </div>
+    </div>
+        
+    </div>
 
 
 </div>
+
+<script src="gameroom.js"></script>
 </body>
 </html>
