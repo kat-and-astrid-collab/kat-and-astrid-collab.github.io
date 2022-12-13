@@ -1,5 +1,6 @@
 body {
     background-image: linear-gradient(skyblue, pink);
+    background-repeat: no-repeat;
 }
 
 header {
@@ -32,7 +33,31 @@ header {
 }
 
 .gameboard {
-    background-color: beige;
+    /* background-color: beige; */
     width: 70%;
     min-height: 50px;
+}
+
+.tic-tac-container {
+    display: none;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.tic-tac-box {
+    font-family:Arial, Helvetica, sans-serif;
+    /* background-color: azure; */
+    width: 33%;
+    text-align: center;
+    font-size: 140px;
+}
+
+.border-left-right {
+    border-left: 2.5px solid black;
+    border-right: 2.5px solid black;
+}
+
+.border-top-bottom {
+    border-top: 2.5px solid black;
+    border-bottom: 2.5px solid black;
 }
