@@ -9,11 +9,11 @@ header {
     font-size: 40px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    margin: 50px auto;
+    margin: 50px 0;
 }
 
 .game-btn {
-    background-color: skyblue;
+    /* background-color: skyblue; */
     width: 60px;
     min-height: 50px;
     margin: 50px;
@@ -38,6 +38,7 @@ header {
     min-height: 50px;
 }
 
+/* Tic Tac Toe Board */
 .tic-tac-container {
     display: none;
     flex-wrap: wrap;
@@ -45,7 +46,7 @@ header {
 }
 
 .tic-tac-box {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     /* background-color: azure; */
     width: 33%;
     text-align: center;
@@ -53,11 +54,28 @@ header {
 }
 
 .border-left-right {
-    border-left: 2.5px solid black;
-    border-right: 2.5px solid black;
+    border-left: 2.5px solid white;
+    border-right: 2.5px solid white;
 }
 
 .border-top-bottom {
-    border-top: 2.5px solid black;
-    border-bottom: 2.5px solid black;
+    border-top: 2.5px solid white;
+    border-bottom: 2.5px solid white;
+}
+
+/* Rock Paper Scissors Board */
+.rock-paper-scissors-container {
+    height: 100%;
+    background-color: azure;
+    display: none;
+}
+
+.rock-paper-scissors-box {
+    width: 100%;
+    width: 50%;
+    background-color: green;
+    text-align: center;
+    font-size: 40px;
+    
+      
 }
