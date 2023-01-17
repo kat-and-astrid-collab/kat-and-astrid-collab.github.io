@@ -1,6 +1,7 @@
 body {
     background-image: linear-gradient(skyblue, pink);
     background-repeat: no-repeat;
+    cursor: default;
 }
 
 header {
@@ -10,26 +11,51 @@ header {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     margin: 50px 0;
+    height: 100%;
 }
 
 .game-btn {
     /* background-color: skyblue; */
+    color: white;
     width: 60px;
     min-height: 50px;
     margin: 50px;
 }
 
+/* .game-btn:hover, .quit-button:hover {
+
+} */
+
 .gen-container {
     display: flex;
     padding-bottom: 30px;
+    height: 100%;
 }
 
+.quit-button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: white;
+    /* background-color: skyblue; */
+    width: 100px;
+    height: 35px;
+    padding: 15px 15px 8px 15px;
+    margin-left: 15px;
+    outline: solid 2.5px;
+    border-radius: 5px;
+    visibility: hidden;
+}
 
 .btn-container {
     /* background-color: teal; */
     width: 15%;
     padding-left: 70px;
-    padding-top: 0;
+    padding-top: 25px;
+    /* visibility: hidden; */
+}
+
+.quit-button:hover, .game-btn:hover {
+    cursor: pointer;
 }
 
 .gameboard {
@@ -38,8 +64,28 @@ header {
     min-height: 50px;
 }
 
+.scorecard {
+    display: flex;
+    }
+
+.scorecard-container {
+    min-height: 500px;
+    width: 50%;
+    /* background-color: sienna; */
+    text-align: center;
+    font-size: 40px;
+}
+
+.scorecard-container h2 {
+    padding-top: 150px;
+}
+
+.scorecard-container p {
+    padding-top: 50px;
+}
+
 /* Tic Tac Toe Board */
-.tic-tac-container {
+#tic-tac-container {
     display: none;
     flex-wrap: wrap;
     height: 100%;
@@ -48,9 +94,11 @@ header {
 .tic-tac-box {
     font-family: Arial, Helvetica, sans-serif;
     /* background-color: azure; */
-    width: 33%;
+    /* max-height: 30%; */
+    width: 30%;
     text-align: center;
-    font-size: 140px;
+    font-size: 100px;
+    /* padding: 50px; */
 }
 
 .border-left-right {
@@ -64,18 +112,17 @@ header {
 }
 
 /* Rock Paper Scissors Board */
-.rock-paper-scissors-container {
-    height: 100%;
+#rock-paper-scissors-container {
+    min-height: 100%;
+    max-height: 100%;
     background-color: azure;
     display: none;
 }
 
 .rock-paper-scissors-box {
-    width: 100%;
+    min-height: 100%;
     width: 50%;
     background-color: green;
     text-align: center;
-    font-size: 40px;
-    
-      
+    font-size: 40px;      
 }
