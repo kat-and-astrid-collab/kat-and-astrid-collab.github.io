@@ -42,10 +42,10 @@ const addScore = function(score){
 const giveScore = function() {
     if(playerOne == true){
     addScore(score1);
-}            
-else if(playerTwo == true){
+    }            
+    else if(playerTwo == true){
     addScore(score2);
-}
+    }
 }
 
 // QUIT GAME FUNCTION
@@ -97,6 +97,11 @@ const checkForTicTacWin = function(box1, box2, box3){
     }
 }
 
+const quitTicTac = function() {
+    ticTacBoxes[2].textContent = " ";
+    ticTacBoxes[0,1,4,5,6].textContent = "";
+}
+
 const addXO = function (divElement){
     if(divElement.textContent = " "){
         divElement.textContent = "";
@@ -112,6 +117,7 @@ const addXO = function (divElement){
         if(checkForTicTacWin(0, 1, 2) == true){
             giveScore();
             quitGame(); 
+            quitTicTac();
         }
         else if(checkForTicTacWin(3, 4, 5) == true){
             giveScore();

@@ -14,6 +14,40 @@ header {
     height: 100%;
 }
 
+.hidden {
+    display: none;
+    background-color: rbg(255, 255, 255, 0);
+}
+
+.modal {
+    background-color: rgba(245, 245, 220, 0.655);
+        /* background-color: coral; */
+    position:absolute;
+    top: 50%;
+    left: 450px;
+    height: 200px;
+    width: 350px;
+    border-radius: 2.5px;
+    font-size: 35px;
+    text-align: center;
+    padding-top: 35px;
+    z-index: 10;
+}
+.modal p {
+    padding-top: 30px;
+    font-size: 25px;
+}
+
+.btn-container-modal {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 50px;
+}
+
+.btn-modal {
+    height: 35px;
+}
+
 .game-btn {
     /* background-color: skyblue; */
     color: white;
@@ -94,11 +128,11 @@ header {
 .tic-tac-box {
     font-family: Arial, Helvetica, sans-serif;
     /* background-color: azure; */
-    /* max-height: 30%; */
+    height: 150px;
     width: 30%;
     text-align: center;
     font-size: 100px;
-    /* padding: 50px; */
+    padding-top: 50px; 
 }
 
 .border-left-right {
