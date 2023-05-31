@@ -12,18 +12,23 @@ const btnRockPaperScissors = document.querySelector( "#rock-paper-scissors-btn")
 const btnSnakesLadders = document.querySelector("#snakes-ladders-btn");
 const containerTicTac = document.querySelector("#tic-tac-container");
 const ticTacBoxes = document.querySelectorAll(".tic-tac-box");
+const ticTacBoxesDiff = document.querySelectorAll(".box-different");
 const containerRockPaperScissors = document.querySelector("#rock-paper-scissors-container")
 const headingContent = document.querySelector("h1");
 const gameContainers = document.querySelectorAll(".game-container");
 const buttonContainer = document.querySelector(".btn-container");
 const quitButton = document.querySelector(".quit-button");
 const scorecard = document.querySelector(".scorecard");
+const modal = document.querySelector('.modal');
+const modalQuitBtn = document.querySelector('.btn__modal-quit')
+const modalAgainBtn = document.querySelector('.btn__modal-again')
 const score1 = document.querySelector("#scorecard-1 p");
 const score2 = document.querySelector("#scorecard-2 p");
-
-// GLOBAL FUNCTIONS
 let playerOne = false;
 let playerTwo = false;
+
+// GLOBAL FUNCTIONS
+
 const switchPlayer = function(){
     if(playerOne === true){
         playerOne = false;
@@ -40,13 +45,31 @@ const addScore = function(score){
 }
 
 const giveScore = function() {
-    if(playerOne == true){
+    if(playerOne === true){
     addScore(score1);
     }            
-    else if(playerTwo == true){
+    else if(playerTwo === true){
     addScore(score2);
     }
 }
+
+const showModal = function(player) {
+    modal.style.display = 'block';
+    modal.firstElementChild.textContent = `Player ${player} wins!`;
+}
+const hideModal = function() {
+    modal.style.display = 'none';
+}
+
+modalAgainBtn.addEventListener('click', function() {
+    quitGame();
+    loadTicTac();
+    hideModal();
+})
+modalQuitBtn.addEventListener('click', function() {
+    quitGame();
+    hideModal();
+})
 
 // QUIT GAME FUNCTION
 const quitGame = function () {
@@ -57,6 +80,8 @@ gameContainers.forEach(element => element.style.display = "none");
 headingContent.textContent = "Astrid's Game Room!";
 playerOne = false;
 playerTwo = false;
+quitTicTac();
+/*REMEMBER TO INCLUDE QUIT GAME FUNCTIONS FOR EACH GAME*/ 
 }
 
 
@@ -98,56 +123,61 @@ const checkForTicTacWin = function(box1, box2, box3){
 }
 
 const quitTicTac = function() {
-    ticTacBoxes[2].textContent = " ";
-    ticTacBoxes[0,1,4,5,6].textContent = "";
+        ticTacBoxes.forEach(box=>box.textContent = "");
+        ticTacBoxesDiff.forEach(box=>box.textContent = " ");
 }
 
 const addXO = function (divElement){
-    if(divElement.textContent = " "){
-        divElement.textContent = "";
-    }
-    if(divElement.textContent === ""){
+    // if(divElement.textContent = " "){
+    //     divElement.textContent = "";
+    // }
+    if(divElement.textContent === "" || divElement.textContent === " "){
+        let activePlayer;
         if(playerOne === true) {
+            activePlayer = 1;
         divElement.textContent = "X";
         }
         if(playerTwo === true) {
+            activePlayer = 2;
         divElement.textContent = "O";
         }
     
-        if(checkForTicTacWin(0, 1, 2) == true){
+        if(checkForTicTacWin(0, 1, 2)){
             giveScore();
-            quitGame(); 
-            quitTicTac();
+            showModal(activePlayer); 
         }
-        else if(checkForTicTacWin(3, 4, 5) == true){
+        else if(checkForTicTacWin(3, 4, 5)){
             giveScore();
+            showModal(activePlayer); 
+        }
+        else if(checkForTicTacWin(6, 7, 8)){
+            giveScore();
+            showModal(activePlayer); 
+        }
+        else if(checkForTicTacWin(0, 3, 6)){
+            giveScore();
+            showModal(activePlayer); 
+        }
+        else if(checkForTicTacWin(1, 4, 7)){
+            giveScore();
+            showModal(activePlayer); 
+        }
+        else if(checkForTicTacWin(2, 5, 8)){
+
             quitGame();
+            showModal(activePlayer); 
         }
-        else if(checkForTicTacWin(6, 7, 8) == true){
+        else if(checkForTicTacWin(0, 4, 8)){
             giveScore();
-            quitGame();
+            showModal(activePlayer); 
         }
-        else if(checkForTicTacWin(0, 3, 6) == true){
+        else if(checkForTicTacWin(2, 4, 6)){
             giveScore();
-            quitGame();
+            showModal(activePlayer); 
         }
-        else if(checkForTicTacWin(1, 4, 7) == true){
-            giveScore();
-            quitGame();
-        }
-        else if(checkForTicTacWin(2, 5, 8) == true){
-            giveScore();
-            quitGame();
-        }
-        else if(checkForTicTacWin(0, 4, 8) == true){
-            giveScore();
-            quitGame();
-        }
-        else if(checkForTicTacWin(2, 4, 6) == true){
-            giveScore();
-            quitGame();
-        }
+
         else {switchPlayer();
         }
-    }
+}
+    
 }

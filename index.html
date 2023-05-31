@@ -15,16 +15,7 @@
         <h1>Astrid's Game Room!</h1>
     </header>
 
-    <div class="modal hidden">
-
-        <h2>Player # Wins!</h2>
-        <p>Would you like to play again?</p>
-        <div class="btn-container-modal">
-            <button class="btn-modal btn-play-again">Play Again</button>
-            <button class="btn-modal btn-quit-game">Quit to Main Menu</button>
-        </div>
-        
-    </div>
+    
 
 <div class="gen-container">
 
@@ -62,24 +53,38 @@
         </div>
 
         <div class="modal">
+
             <h2></h2>
+            <p>Would you like to play again?</p>
+            <div class="btn-container-modal">
+                <button class="btn-modal btn__modal-again">Play Again</button>
+                <button class="btn-modal btn__modal-quit">Quit to Main Menu</button>
+            </div>
+            
         </div>
 
         <div id="tic-tac-container" class="game-container">
             <div id="tic-tac-box-1" class="tic-tac-box" onclick="addXO(this)"></div>
             <div id="tic-tac-box-2" class="tic-tac-box border-left-right" onclick="addXO(this)"></div>
-            <div id="tic-tac-box-3" class="tic-tac-box" onclick="addXO(this)"> </div>
-            <div id="tic-tac-box-4" class="tic-tac-box border-top-bottom" onclick="addXO(this)"> </div>
+            <div id="tic-tac-box-3" class="tic-tac-box box-different" onclick="addXO(this)"> </div>
+            <div id="tic-tac-box-4" class="tic-tac-box border-top-bottom box-different" onclick="addXO(this)"> </div>
             <div id="tic-tac-box-5" class="tic-tac-box border-left-right border-top-bottom" onclick="addXO(this)"></div>
             <div id="tic-tac-box-6" class="tic-tac-box border-top-bottom" onclick="addXO(this)"></div>
             <div id="tic-tac-box-7" class="tic-tac-box" onclick="addXO(this)"></div>
-            <div id="tic-tac-box-8" class="tic-tac-box border-left-right" onclick="addXO(this)"> </div>
-            <div id="tic-tac-box-9" class="tic-tac-box" onclick="addXO(this)"> </div>
+            <div id="tic-tac-box-8" class="tic-tac-box border-left-right box-different" onclick="addXO(this)"> </div>
+            <div id="tic-tac-box-9" class="tic-tac-box box-different" onclick="addXO(this)"> </div>
         </div>
 
         <div id="rock-paper-scissors-container" class="game-container">
-            <div class="rock-paper-scissors-box">Player 1 Box</div>
-            <div class="rock-paper-scissors-box">Player 2 Box</div>
+            <div class="rock-paper-scissors-box">Player 1
+                <img src="images/hand-fist.svg" alt="">
+                <div class="options-box">
+                    <img src="images/hand-fist.svg" alt="">
+                    <img src="images/hand-regular.svg" alt="">
+                    <img src="images/hand-svgrepo-com.svg" alt="">
+                </div>
+            </div>
+            <div class="rock-paper-scissors-box">Player 2</div>
 
         </div>
     </div>

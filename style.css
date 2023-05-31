@@ -14,14 +14,10 @@ header {
     height: 100%;
 }
 
-.hidden {
-    display: none;
-    background-color: rbg(255, 255, 255, 0);
-}
+
 
 .modal {
     background-color: rgba(245, 245, 220, 0.655);
-        /* background-color: coral; */
     position:absolute;
     top: 50%;
     left: 450px;
@@ -32,6 +28,7 @@ header {
     text-align: center;
     padding-top: 35px;
     z-index: 10;
+    display: none;
 }
 .modal p {
     padding-top: 30px;
@@ -156,7 +153,19 @@ header {
 .rock-paper-scissors-box {
     min-height: 100%;
     width: 50%;
-    background-color: green;
+    padding: 50px;
+    background-color: rgba(0, 122, 128, 0.5);
     text-align: center;
-    font-size: 40px;      
+    font-size: 40px;
+}
+
+.rock-paper-scissors-box img {
+    height: 55px;
+}
+
+.options-box {
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 100px;
 }
