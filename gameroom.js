@@ -1,10 +1,5 @@
 "use strict";
 
-//  USE IN CASE OF DOM ELEMENTS NOT LOADING
-// document.addEventListener("DOMContentLoaded", function(event) { 
-    
-// });
-
 // STARTING VARIABLES
 const btnGames = document.querySelectorAll(".game-btn");
 const btnTicTac = document.querySelector("#tic-tac-toe-btn");
@@ -13,19 +8,37 @@ const btnSnakesLadders = document.querySelector("#snakes-ladders-btn");
 const containerTicTac = document.querySelector("#tic-tac-container");
 const ticTacBoxes = document.querySelectorAll(".tic-tac-box");
 const ticTacBoxesDiff = document.querySelectorAll(".box-different");
-const containerRockPaperScissors = document.querySelector("#rock-paper-scissors-container")
+const containerRockPaperScissors = document.querySelector("#rock-paper-scissors-container");
+const rpsMoveOne = document.querySelector('.rps-move--1');
+const rpsMoveTwo = document.querySelector('.rps-move--2');
 const headingContent = document.querySelector("h1");
 const gameContainers = document.querySelectorAll(".game-container");
 const buttonContainer = document.querySelector(".btn-container");
 const quitButton = document.querySelector(".quit-button");
 const scorecard = document.querySelector(".scorecard");
 const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
 const modalQuitBtn = document.querySelector('.btn__modal-quit')
 const modalAgainBtn = document.querySelector('.btn__modal-again')
 const score1 = document.querySelector("#scorecard-1 p");
 const score2 = document.querySelector("#scorecard-2 p");
 let playerOne = false;
 let playerTwo = false;
+let draw = false;
+const playertictacArrs = {
+    playerOneArr: [],
+    playerTwoArr: [],
+}
+const ticTacWinsArr = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+];
 
 // GLOBAL FUNCTIONS
 
@@ -55,10 +68,16 @@ const giveScore = function() {
 
 const showModal = function(player) {
     modal.style.display = 'block';
+    overlay.style.display = 'block';
+    if(draw) {
+        modal.firstElementChild.textContent = "Draw!";
+    } else {
     modal.firstElementChild.textContent = `Player ${player} wins!`;
+    }
 }
 const hideModal = function() {
     modal.style.display = 'none';
+    overlay.style.display = 'none';
 }
 
 modalAgainBtn.addEventListener('click', function() {
@@ -80,6 +99,7 @@ gameContainers.forEach(element => element.style.display = "none");
 headingContent.textContent = "Astrid's Game Room!";
 playerOne = false;
 playerTwo = false;
+draw = false;
 quitTicTac();
 /*REMEMBER TO INCLUDE QUIT GAME FUNCTIONS FOR EACH GAME*/ 
 }
@@ -113,71 +133,56 @@ btnTicTac.addEventListener("click", loadTicTac);
 btnRockPaperScissors.addEventListener("click", loadRockPaperScissors);
 quitButton.addEventListener("click", quitGame);
 
-const checkForTicTacWin = function(box1, box2, box3){
-    if(ticTacBoxes[box1].textContent === ticTacBoxes[box2].textContent && ticTacBoxes[box2].textContent === ticTacBoxes[box3].textContent) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
+
 
 const quitTicTac = function() {
-        ticTacBoxes.forEach(box=>box.textContent = "");
-        ticTacBoxesDiff.forEach(box=>box.textContent = " ");
+        ticTacBoxes.forEach(box=>box.textContent = " ");
+        ticTacBoxesDiff.forEach(box=>box.textContent = "  ");
+        playertictacArrs.playerOneArr.length = 0;
+        playertictacArrs.playerTwoArr.length = 0;
 }
 
+
 const addXO = function (divElement){
-    // if(divElement.textContent = " "){
-    //     divElement.textContent = "";
-    // }
-    if(divElement.textContent === "" || divElement.textContent === " "){
+    if(divElement.textContent === " " || divElement.textContent === "  "){
         let activePlayer;
         if(playerOne === true) {
             activePlayer = 1;
         divElement.textContent = "X";
+        playertictacArrs.playerOneArr.push(+(divElement.id.slice(-1)) -1);
+        playertictacArrs.playerOneArr.sort((a, b) => a-b);
+
         }
         if(playerTwo === true) {
             activePlayer = 2;
         divElement.textContent = "O";
+        playertictacArrs.playerTwoArr.push(+(divElement.id.slice(-1)) -1);
+        playertictacArrs.playerTwoArr.sort((a, b) => a-b)
         }
-    
-        if(checkForTicTacWin(0, 1, 2)){
-            giveScore();
-            showModal(activePlayer); 
-        }
-        else if(checkForTicTacWin(3, 4, 5)){
-            giveScore();
-            showModal(activePlayer); 
-        }
-        else if(checkForTicTacWin(6, 7, 8)){
-            giveScore();
-            showModal(activePlayer); 
-        }
-        else if(checkForTicTacWin(0, 3, 6)){
-            giveScore();
-            showModal(activePlayer); 
-        }
-        else if(checkForTicTacWin(1, 4, 7)){
-            giveScore();
-            showModal(activePlayer); 
-        }
-        else if(checkForTicTacWin(2, 5, 8)){
+        
+        const win = ticTacWinsArr.some((val) => {
+            const [a, b, c] = val;
+            const [...playerBoxes] = activePlayer === 1 ?               
+                playertictacArrs.playerOneArr : 
+                playertictacArrs.playerTwoArr;
 
-            quitGame();
-            showModal(activePlayer); 
-        }
-        else if(checkForTicTacWin(0, 4, 8)){
-            giveScore();
-            showModal(activePlayer); 
-        }
-        else if(checkForTicTacWin(2, 4, 6)){
-            giveScore();
-            showModal(activePlayer); 
-        }
+            if(playerBoxes.includes(a) && playerBoxes.includes(b) && playerBoxes.includes(c)) {
+                return true;
+            }
+        })
 
-        else {switchPlayer();
+        if(win) {
+            giveScore();
+            showModal(activePlayer); 
+        } 
+
+        if (playertictacArrs.playerOneArr.length === 5 && playertictacArrs.playerTwoArr.length === 4) {
+            draw = true;
+            showModal();
         }
+        else{
+            switchPlayer();
+        }
+    }
 }
     
-}

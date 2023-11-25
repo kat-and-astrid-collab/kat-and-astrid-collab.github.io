@@ -27,7 +27,7 @@
             <img src="images/tic-tac-toe-svgrepo-com.svg" alt="">
         </div>
         <div class="game-btn" id="rock-paper-scissors-btn">
-            <img src="images/hand-svgrepo-com.svg" alt="" style="transform:rotate(90deg)">
+            <img src="images/rock-paper-scissors.svg" alt="" style="transform:rotate(90deg)">
         </div>
         <div class="game-btn" id="snakes-ladders-btn"></div>
         <div class="game-btn"></div>
@@ -52,7 +52,8 @@
             </div>
         </div>
 
-        <div class="modal">
+        <div class="overlay">
+            <div class="modal">
 
             <h2></h2>
             <p>Would you like to play again?</p>
@@ -61,31 +62,56 @@
                 <button class="btn-modal btn__modal-quit">Quit to Main Menu</button>
             </div>
             
+            </div>
         </div>
 
         <div id="tic-tac-container" class="game-container">
-            <div id="tic-tac-box-1" class="tic-tac-box" onclick="addXO(this)"></div>
-            <div id="tic-tac-box-2" class="tic-tac-box border-left-right" onclick="addXO(this)"></div>
-            <div id="tic-tac-box-3" class="tic-tac-box box-different" onclick="addXO(this)"> </div>
-            <div id="tic-tac-box-4" class="tic-tac-box border-top-bottom box-different" onclick="addXO(this)"> </div>
-            <div id="tic-tac-box-5" class="tic-tac-box border-left-right border-top-bottom" onclick="addXO(this)"></div>
-            <div id="tic-tac-box-6" class="tic-tac-box border-top-bottom" onclick="addXO(this)"></div>
-            <div id="tic-tac-box-7" class="tic-tac-box" onclick="addXO(this)"></div>
-            <div id="tic-tac-box-8" class="tic-tac-box border-left-right box-different" onclick="addXO(this)"> </div>
-            <div id="tic-tac-box-9" class="tic-tac-box box-different" onclick="addXO(this)"> </div>
+            <div id="tic-tac-box-1" class="tic-tac-box" onclick="addXO(this)"> </div>
+            <div id="tic-tac-box-2" class="tic-tac-box border-left-right" onclick="addXO(this)"> </div>
+            <div id="tic-tac-box-3" class="tic-tac-box box-different" onclick="addXO(this)">  </div>
+            <div id="tic-tac-box-4" class="tic-tac-box border-top-bottom box-different" onclick="addXO(this)">  </div>
+            <div id="tic-tac-box-5" class="tic-tac-box border-left-right border-top-bottom" onclick="addXO(this)"> </div>
+            <div id="tic-tac-box-6" class="tic-tac-box border-top-bottom" onclick="addXO(this)"> </div>
+            <div id="tic-tac-box-7" class="tic-tac-box" onclick="addXO(this)"> </div>
+            <div id="tic-tac-box-8" class="tic-tac-box border-left-right box-different" onclick="addXO(this)">  </div>
+            <div id="tic-tac-box-9" class="tic-tac-box box-different" onclick="addXO(this)">  </div>
         </div>
 
         <div id="rock-paper-scissors-container" class="game-container">
-            <div class="rock-paper-scissors-box">Player 1
-                <img src="images/hand-fist.svg" alt="">
-                <div class="options-box">
-                    <img src="images/hand-fist.svg" alt="">
-                    <img src="images/hand-regular.svg" alt="">
-                    <img src="images/hand-svgrepo-com.svg" alt="">
+            <div class="rock-paper-scissors-box rps-box--1">
+                <div class="player-label">Player 1</div>
+                <div class="rps-move">
+                    <img class="rps-move--1" src="#" alt="">
+                </div>
+                <div class="options-box-1">
+                    <button class="rps-option-rock--player1">
+                        <img src="/images/hand-fist.png" alt="" srcset="">
+                    </button>
+                    <button class="rps-option-paper--player1">
+                        <img src="/images/hand-paper.png" alt="" srcset="">
+                    </button>
+                    <button class="rps-option-scissors--player1">
+                        <img src="/images/hand-scissors.png" alt="" srcset="">
+                    </button>
                 </div>
             </div>
-            <div class="rock-paper-scissors-box">Player 2</div>
-
+            <div class="rock-paper-scissors-box rps-box--2">
+                <div class="player-label">Player 2</div>
+                <div class="rps-move">
+                    <img class="rps-move--2" src="#" alt="">
+                </div>
+                <div class="options-box-2">
+                    <button class="rps-option-rock--player2">
+                        <img src="/images/hand-fist.png" alt="" srcset="">
+                    </button>
+                    <button class="rps-option-paper--player2">
+                        <img src="/images/hand-paper.png" alt="" srcset="">
+                    </button>
+                    <button class="rps-option-scissors--player2">
+                        <img src="/images/hand-scissors.png" alt="" srcset="">
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
         
